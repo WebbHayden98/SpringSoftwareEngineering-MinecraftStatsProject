@@ -1,0 +1,10 @@
+name: Statistics
+version: ${project.version}
+main: us.swosuteam404.statistics.Statistics
+api-version: 1.13
+authors: [SWOSUTeam404]
+description: Statistics plugin for Minecraft Spigot servers
+commands:
+  exportData:
+    description: Exports the Statistics data
+    usage: /exportData
