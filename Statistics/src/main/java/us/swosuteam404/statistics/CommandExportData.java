@@ -25,12 +25,20 @@ public class CommandExportData implements CommandExecutor {
                 FileWriter writer = new FileWriter("StatisticsData.txt", true);
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
-                bufferedWriter.write("Number of total deaths: " + DeathCounter.getPlayerDeaths());
+                bufferedWriter.write("Number of total deaths: " + DeathCounter.getPlayerDeaths() +"\n");
+                bufferedWriter.write("Number of total deaths by PVP: " + DeathCounter.getPlayerPVPDeath() +"\n");
+                bufferedWriter.write("Number of total deaths by Creepers: " + DeathCounter.getCreeperKill() +"\n");
+                bufferedWriter.write("Number of total deaths by Zombies: " + DeathCounter.getZombieKill() +"\n");
+                bufferedWriter.write("Number of total deaths by Skeletons: " + DeathCounter.getSkeletonKill() +"\n");
+                bufferedWriter.write("Number of total deaths by Spiders: " + DeathCounter.getSpiderKill() +"\n");
+                bufferedWriter.write("Number of total deaths by Cave Spiders: " + DeathCounter.getCaveSpiderKill() +"\n");
+                bufferedWriter.write("Number of total deaths by Wither Skeleton: " + DeathCounter.getWitherSkeletonKill() +"\n");
+                bufferedWriter.write("Number of total deaths by Witch: " + DeathCounter.getWitchKill() +"\n");
 
                 bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();
-                player.sendMessage(ChatColor.YELLOW + "Data Export Failure");
+                player.sendMessage(ChatColor.RED + "Data Export Failure");
             }
 
             player.sendMessage(ChatColor.YELLOW + "Data Export complete");
