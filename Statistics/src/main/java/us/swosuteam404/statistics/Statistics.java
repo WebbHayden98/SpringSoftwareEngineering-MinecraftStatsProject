@@ -25,7 +25,8 @@ public final class Statistics extends JavaPlugin implements Listener {
     //this will trigger when a player dies and call .deathCounter() from DeathCounter.jar
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-        DeathCounter.deathCounter();
+
+        DeathCounter.deathCounter(event);
     }
 
 
