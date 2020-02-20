@@ -303,9 +303,10 @@ public class DeathCounter implements Listener {
             } else if (entityThatDamaged.getDamager() instanceof Guardian) {
                 getServer().broadcastMessage("Death by Guardian");
                 deathToGuardianMelee += 1;
-            } else if (entityThatDamaged.getDamager() instanceof ElderGuardian) {
-                getServer().broadcastMessage("Death by Elder Guardian");
-                deathToElderGuardianMelee += 1;
+                if (entityThatDamaged.getDamager() instanceof ElderGuardian) {
+                    getServer().broadcastMessage("Death by Elder Guardian");
+                    deathToElderGuardianMelee += 1;
+                }
             } else if (entityThatDamaged.getDamager() instanceof WitherSkeleton) {
                 getServer().broadcastMessage("Death to Wither Skeleton");
                 deathToWitherSkeleton += 1;
