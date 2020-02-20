@@ -1,0 +1,1 @@
+java -Xms512M -Xmx4G -jar spigot-1.15.2.jar -o true
