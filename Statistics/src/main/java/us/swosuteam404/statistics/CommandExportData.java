@@ -10,6 +10,8 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
+import us.swosuteam404.statistics.DeathCounter;
+
 public class CommandExportData implements CommandExecutor {
 
     @Override
@@ -19,22 +21,25 @@ public class CommandExportData implements CommandExecutor {
 
             player.sendMessage(ChatColor.YELLOW + "Exporting the Data now");
 
+
             //FileWriter allows us to export data to a new file
             //Originally made by Nam Ha Minh @ www.codejava.net
             try {
                 FileWriter writer = new FileWriter("StatisticsData.txt", true);
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
 
-                bufferedWriter.write("Number of total deaths: " + DeathCounter.getPlayerDeaths() +"\n");
-                bufferedWriter.write("Number of total deaths by PVP: " + DeathCounter.getPlayerPVPDeath() +"\n");
-                bufferedWriter.write("Number of total deaths by Creepers: " + DeathCounter.getCreeperKill() +"\n");
-                bufferedWriter.write("Number of total deaths by Zombies: " + DeathCounter.getZombieKill() +"\n");
-                bufferedWriter.write("Number of total deaths by Skeletons: " + DeathCounter.getSkeletonKill() +"\n");
-                bufferedWriter.write("Number of total deaths by Spiders: " + DeathCounter.getSpiderKill() +"\n");
-                bufferedWriter.write("Number of total deaths by Cave Spiders: " + DeathCounter.getCaveSpiderKill() +"\n");
-                bufferedWriter.write("Number of total deaths by Wither Skeleton: " + DeathCounter.getWitherSkeletonKill() +"\n");
-                bufferedWriter.write("Number of total deaths by Witch: " + DeathCounter.getWitchKill() +"\n");
 
+                //building an instance of DeathCounterArray to pull to here
+                int[] deathArray = DeathCounter.buildDeathCounterArray();;
+                //Begin writing top line of total number of deaths.
+                bufferedWriter.write("The number of totals deaths: " + DeathCounter.totalPlayerDeaths + "\n");
+                //writing all other deaths.
+                int arrayOfPlayerDeathsLength = deathArray.length;
+                for (int index = 1; index < arrayOfPlayerDeathsLength; index++) {
+                    bufferedWriter.write("The number of totals deaths by " + DeathCounter.arrayOfPlayerDeathLabels[index] +
+                            ": " + deathArray[index] + "\n");
+                }
+                //end writing
                 bufferedWriter.close();
             } catch (IOException e) {
                 e.printStackTrace();

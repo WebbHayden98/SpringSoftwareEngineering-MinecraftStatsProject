@@ -14,6 +14,7 @@ public final class Statistics extends JavaPlugin implements Listener {
         getServer().getPluginManager().registerEvents(this, this);
         //Custom command to allow exportation of collected data
         this.getCommand("exportData").setExecutor(new CommandExportData());
+
     }
 
     @Override
@@ -25,8 +26,7 @@ public final class Statistics extends JavaPlugin implements Listener {
     //this will trigger when a player dies and call .deathCounter() from DeathCounter.jar
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
-
-        DeathCounter.deathCounter(event);
+        DeathCounter.deathDetector(event);
     }
 
 
