@@ -1,0 +1,69 @@
+The number of totals deaths: 164
+The number of totals deaths by PVP: 8
+The number of totals deaths by Ranged PVP: 0
+The number of totals deaths by Creeper: 3
+The number of totals deaths by Zombie: 14
+The number of totals deaths by Skeleton: 4
+The number of totals deaths by Wither Skeleton: 2
+The number of totals deaths by Spider: 3
+The number of totals deaths by Cave Spider: 0
+The number of totals deaths by Witch: 2
+The number of totals deaths by Enderman: 1
+The number of totals deaths by Zombie Villager: 1
+The number of totals deaths by Zombie Pigman: 0
+The number of totals deaths by Wolf: 1
+The number of totals deaths by Dolphin: 1
+The number of totals deaths by Husk: 14
+The number of totals deaths by Silverfish: 1
+The number of totals deaths by Slime: 6
+The number of totals deaths by Magma Cube: 0
+The number of totals deaths by Ravager: 5
+The number of totals deaths by Vindicator: 1
+The number of totals deaths by Pillager Melee: 0
+The number of totals deaths by Phantom: 1
+The number of totals deaths by Iron Golem: 0
+The number of totals deaths by Polar Bear: 1
+The number of totals deaths by Panda: 1
+The number of totals deaths by Bee: 1
+The number of totals deaths by PufferFish: 1
+The number of totals deaths by Endermite: 1
+The number of totals deaths by Vex: 33
+The number of totals deaths by Wither Explosion: 1
+The number of totals deaths by Ender Dragon Melee: 1
+The number of totals deaths by Guardian Melee: 5
+The number of totals deaths by Elder Guardian Melee: 1
+The number of totals deaths by Drowned Melee: 1
+The number of totals deaths by Pillager: 2
+The number of totals deaths by Ranged Wither: 0
+The number of totals deaths by Ranged Ender Dragon: 0
+The number of totals deaths by Ranged Guardian: 0
+The number of totals deaths by Ranged Elder Guardian: 0
+The number of totals deaths by Llama: 0
+The number of totals deaths by Shulker: 2
+The number of totals deaths by Evoker: 0
+The number of totals deaths by Evoker Fangs: 1
+The number of totals deaths by Ghast: 1
+The number of totals deaths by Blaze: 2
+The number of totals deaths by Ranged Drowned: 1
+The number of totals deaths by Stray: 1
+The number of totals deaths by Drowning: 1
+The number of totals deaths by Cramming: 0
+The number of totals deaths by TNT: 1
+The number of totals deaths by Cactus: 2
+The number of totals deaths by Falling: 5
+The number of totals deaths by Lava: 4
+The number of totals deaths by Falling Blocks: 0
+The number of totals deaths by Fire Contact: 2
+The number of totals deaths by Burns: 2
+The number of totals deaths by Magma Block: 1
+The number of totals deaths by Flying into walls: 1
+The number of totals deaths by Lightning: 0
+The number of totals deaths by Magic: 0
+The number of totals deaths by Poison: 0
+The number of totals deaths by Trap Projectile: 0
+The number of totals deaths by Starvation: 1
+The number of totals deaths by Suffocation: 1
+The number of totals deaths by Suicide: 0
+The number of totals deaths by Thorns: 0
+The number of totals deaths by Void: 6
+The number of totals deaths by Withering: 2
