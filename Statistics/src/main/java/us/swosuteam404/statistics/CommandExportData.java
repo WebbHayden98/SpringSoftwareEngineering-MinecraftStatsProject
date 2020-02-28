@@ -1,6 +1,8 @@
 package us.swosuteam404.statistics;
 
+import jdk.nashorn.internal.ir.Block;
 import org.bukkit.ChatColor;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -27,8 +29,17 @@ public class CommandExportData implements CommandExecutor {
             try {
                 FileWriter writer = new FileWriter("StatisticsData.txt", true);
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
-
-
+                //BlockBreakCounter exporter
+                for (Material index : BlockBreakCounter.blockBreakNameArray) {
+                    int arrayIndex = BlockBreakCounter.blockBreakNameArray.indexOf(index);
+                    bufferedWriter.write(" The number of " + index.toString() + " broken: " + BlockBreakCounter.blockBreakTallyArray.get(arrayIndex) + "\n");
+                }
+                bufferedWriter.write(" \f");
+                //BlockPlaceCounter exporter
+                for(Material index : BlockPlaceCounter.blockPlaceNameArray) {
+                    int arrayIndex = BlockPlaceCounter.blockPlaceNameArray.indexOf(index);
+                    bufferedWriter.write("The number of " + index.toString() + " placed: " + BlockPlaceCounter.blockPlaceTallyArray.get(arrayIndex) + "\n");
+                }
                 //building an instance of DeathCounterArray to pull to here
                 int[] deathArray = DeathCounter.buildDeathCounterArray();;
                 //Begin writing top line of total number of deaths.

@@ -2,6 +2,8 @@ package us.swosuteam404.statistics;
 
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.BlockBreakEvent;
+import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -27,6 +29,16 @@ public final class Statistics extends JavaPlugin implements Listener {
     @EventHandler
     public void onPlayerDeath(PlayerDeathEvent event) {
         DeathCounter.deathDetector(event);
+    }
+
+    @EventHandler
+    public void onBlockBreak(BlockBreakEvent event) {
+        BlockBreakCounter.breakDetector(event);
+    }
+
+    @EventHandler
+    public void onBlockPlace(BlockPlaceEvent event) {
+        BlockPlaceCounter.placeDetector(event);
     }
 
 

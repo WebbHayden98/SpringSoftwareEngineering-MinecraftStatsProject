@@ -122,37 +122,35 @@ public class DeathCounter implements Listener {
         return arrayOfPlayerDeathCounts;
     }
 
-    /*
-        public static int[] getArrayOfPlayerDeaths() {
-            return arrayOfPlayerDeathCounts.clone();
-        }
-    */
     @EventHandler
     public static void deathDetector(PlayerDeathEvent event) {
         //code will launch on player death
         Player player = event.getEntity();
         Player killer = player.getKiller();
         EntityDamageEvent.DamageCause causeOfDeath = event.getEntity().getLastDamageCause().getCause();
-        EntityDamageByEntityEvent entityThatDamaged = (EntityDamageByEntityEvent) player.getLastDamageCause();
+        //EntityDamageByEntityEvent entityThatDamaged = (EntityDamageByEntityEvent) player.getLastDamageCause();
 
         //Message will post in in-game chat
         getServer().broadcastMessage(ChatColor.YELLOW + "There has been a death.");
         totalPlayerDeaths += 1;
         getServer().broadcastMessage(ChatColor.YELLOW + "The number of total player deaths is now: " + totalPlayerDeaths);
         //will check if death was caused by a player. If not, checks if death was caused by ranged PVP or mob.
-       if (player.getLastDamageCause() instanceof EntityDamageByEntityEvent) {
+        if (player.getLastDamageCause() instanceof EntityDamageByEntityEvent) {
+            EntityDamageByEntityEvent entityThatDamaged = (EntityDamageByEntityEvent) player.getLastDamageCause();
             //Checks to see if kill comes from a Projectile first
             if (entityThatDamaged.getDamager() instanceof Projectile) {
                 Projectile projectile = (Projectile) entityThatDamaged.getDamager();
-                    deathToProjectile += 1;
+                deathToProjectile += 1;
                 if (projectile.getShooter() instanceof Player) {
                     deathToRangedPVP += 1;
                     getServer().broadcastMessage("A Player Projectile has killed you");
                     deathToPVP += 1;
+
                     if(causeOfDeath == DamageCause.MAGIC) {
                         getServer().broadcastMessage("PLAYER MAGIC");
                         deathToMagic += 1;
                     }
+
                 } else if (projectile.getShooter() instanceof Skeleton) {
                     getServer().broadcastMessage("A Skeleton has killed you");
                     deathToSkeleton += 1;
@@ -209,16 +207,21 @@ public class DeathCounter implements Listener {
                 } else if (projectile.getShooter() instanceof Stray) {
                     getServer().broadcastMessage("Death to Stray");
                     deathToStray += 1;
+
                 } else if (causeOfDeath == DamageCause.PROJECTILE) {
                     getServer().broadcastMessage("Death to Projectile");
                     deathToBlockProjectile += 1;
+
+
                 } else if (projectile.getShooter() instanceof BlockProjectileSource) {
                     getServer().broadcastMessage("Death to Block Projectile");
                     deathToBlockProjectile += 1;
+
                     if(causeOfDeath == DamageCause.MAGIC) {
                         getServer().broadcastMessage("MAAGIC");
                         deathToMagic += 1;
                     }
+
                 } else {
                     getServer().broadcastMessage(ChatColor.RED + "ALERT!! Something failed");
                     getServer().broadcastMessage(ChatColor.RED + "The Ranged Entity was: " + projectile.getShooter());
@@ -230,6 +233,7 @@ public class DeathCounter implements Listener {
                     getServer().broadcastMessage("A player has killed themselves");
                     deathToSuicide += 1;
                 }
+
                 if(causeOfDeath == DamageCause.THORNS) {
                     getServer().broadcastMessage("Thorny Demise");
                     deathToThorns += 1;
@@ -238,6 +242,7 @@ public class DeathCounter implements Listener {
                     getServer().broadcastMessage("Death to PVP Magic");
                     deathToMagic += 1;
                 }
+
             } else if (entityThatDamaged.getDamager() instanceof Creeper) {
                 getServer().broadcastMessage("A Creeper has killed you");
                 deathToCreeper += 1;
@@ -256,7 +261,7 @@ public class DeathCounter implements Listener {
                     deathToDrownedMelee += 1;
                 } else if (entityThatDamaged.getDamager() instanceof Husk) {
                     getServer().broadcastMessage("Death to Husk");
-                    deathToZombie -=1;
+                    deathToZombie -= 1;
                     deathToHusk += 1;
                 } else if (entityThatDamaged.getDamager() instanceof ZombieVillager) {
                     getServer().broadcastMessage("Death To Zombie Villager 2");
@@ -267,13 +272,16 @@ public class DeathCounter implements Listener {
                     deathToZombie -= 1;
                     deathToZombiePigman += 1;
                 }
+
                 if (causeOfDeath == DamageCause.THORNS) {
                     deathToThorns += 1;
                 }
+
+
             } else if (entityThatDamaged.getDamager() instanceof Spider) {
                 getServer().broadcastMessage("A Spider has killed you");
                 deathToSpider += 1;
-                if(entityThatDamaged.getDamager() instanceof CaveSpider) {
+                if (entityThatDamaged.getDamager() instanceof CaveSpider) {
                     getServer().broadcastMessage("Actually death to Cave Spider");
                     deathToSpider -= 1;
                     deathToCaveSpider += 1;
@@ -305,7 +313,7 @@ public class DeathCounter implements Listener {
             } else if (entityThatDamaged.getDamager() instanceof Slime) {
                 getServer().broadcastMessage("Slimey Demise");
                 deathToSlime += 1;
-                if (entityThatDamaged.getDamager() instanceof  MagmaCube) {
+                if (entityThatDamaged.getDamager() instanceof MagmaCube) {
                     getServer().broadcastMessage("Actually Magma Cube");
                     deathToMagmaCube += 1;
                     deathToSlime -= 1;
@@ -377,7 +385,7 @@ public class DeathCounter implements Listener {
             } else if (entityThatDamaged.getDamager() instanceof EvokerFangs) {
                 getServer().broadcastMessage("Death to EvokerFangs");
                 deathToEvokerFangs += 1;
-            } else  if (entityThatDamaged.getDamager() instanceof TNT || entityThatDamaged.getDamager() instanceof TNTPrimed) {
+            } else if (entityThatDamaged.getDamager() instanceof TNT || entityThatDamaged.getDamager() instanceof TNTPrimed) {
                 getServer().broadcastMessage("Death to TNT'");
                 deathToTNT += 1;
             } else if (entityThatDamaged.getDamager() instanceof EnderCrystal) {
@@ -390,12 +398,11 @@ public class DeathCounter implements Listener {
                 getServer().broadcastMessage("Death to lightning stike");
                 deathToLightning += 1;
             } else {
-                    getServer().broadcastMessage(ChatColor.RED + "ALERT!! Something failed");
-                    getServer().broadcastMessage(ChatColor.RED + "The Entity Was: " + entityThatDamaged.getDamager());
+                getServer().broadcastMessage(ChatColor.RED + "ALERT!! Something failed");
+                getServer().broadcastMessage(ChatColor.RED + "The Entity Was: " + entityThatDamaged.getDamager());
 
             }
         } else if (player.getLastDamageCause() instanceof EntityDamageEvent) {
-
             if (causeOfDeath == DamageCause.DROWNING) {
                 getServer().broadcastMessage("Drowned to death");
                 deathToDrowning += 1;
