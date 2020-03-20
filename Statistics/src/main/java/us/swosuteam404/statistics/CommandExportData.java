@@ -29,17 +29,34 @@ public class CommandExportData implements CommandExecutor {
             try {
                 FileWriter writer = new FileWriter("StatisticsData.txt", true);
                 BufferedWriter bufferedWriter = new BufferedWriter(writer);
+                //TotalExpGainedCounter exporter
+                bufferedWriter.write("Total Experience gained: " + TotalExpGainedCounter.getTotalExp() + "\n");
+                //CraftItemCounter exporter
+                bufferedWriter.write("Crafted Item Counts: \n");
+                for (String index : CraftItemCounter.itemCraftNameArray) {
+                    int arrayIndex = CraftItemCounter.itemCraftNameArray.indexOf(index);
+                    bufferedWriter.write("The Number of " + index + " crafted " + CraftItemCounter.itemCraftTallyArray.get(arrayIndex) + "\n");
+                }
+                //BrokenItemCounter exporter
+                bufferedWriter.write("Broken Item Counts: \n");
+                for (String index : BrokenItemCounter.itemBreakNameArray) {
+                    int arrayIndex = BrokenItemCounter.itemBreakNameArray.indexOf(index);
+                    bufferedWriter.write("The number of " + index + " broken: " + BrokenItemCounter.itemBreakTallyArray.get(arrayIndex) + "\n");
+                }
                 //BlockBreakCounter exporter
+                bufferedWriter.write("Broken Block Counts: \n");
                 for (Material index : BlockBreakCounter.blockBreakNameArray) {
                     int arrayIndex = BlockBreakCounter.blockBreakNameArray.indexOf(index);
-                    bufferedWriter.write(" The number of " + index.toString() + " broken: " + BlockBreakCounter.blockBreakTallyArray.get(arrayIndex) + "\n");
+                    bufferedWriter.write("The number of " + index.toString() + " broken: " + BlockBreakCounter.blockBreakTallyArray.get(arrayIndex) + "\n");
                 }
-                bufferedWriter.write(" \f");
                 //BlockPlaceCounter exporter
+                bufferedWriter.write("Placed Block Counts: \n");
                 for(Material index : BlockPlaceCounter.blockPlaceNameArray) {
                     int arrayIndex = BlockPlaceCounter.blockPlaceNameArray.indexOf(index);
                     bufferedWriter.write("The number of " + index.toString() + " placed: " + BlockPlaceCounter.blockPlaceTallyArray.get(arrayIndex) + "\n");
                 }
+                //DeathCounter exporter
+                bufferedWriter.write("Player Death Counts: \n");
                 //building an instance of DeathCounterArray to pull to here
                 int[] deathArray = DeathCounter.buildDeathCounterArray();;
                 //Begin writing top line of total number of deaths.
